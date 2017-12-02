@@ -3,12 +3,13 @@
  * DateTime: 2017/11/7 16:51
  * 读取dou里面所有存储为筛选过的网页的htm文件，合并为一个文件，文件输出到./result/result.htm
  */
+
 const iconv = require('iconv-lite');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
 //计数编号
-let count;
+let count=888;
 //设置一个链接是一个图片还是两个图片
 let links=1;
 
@@ -25,22 +26,22 @@ let listImg = `<p class=MsoNormal>
         <span lang=EN-US>
             <img src="">
         </span><br/>
-        <span lang=EN-US>
-            <img src="">
-        </span>
     </p><br/>`;
 
-let $listNum = cheerio(listNum);
-let $listImg = cheerio(listImg);
+let $listNum = cheerio.load(listNum)('p');
+let $listImg ;
 
 //文件处理函数
 function init(dir) {
     // 获取链接数是1个图片还是2个图片
     let args=process.argv.splice(2);
-    if(args.length>0){
+    let $listImgP= cheerio.load(listImg);
+    //如果参数是2的话
+    if(args&&args.length>0){
          links=parseInt(args[0]);
+         $listImgP('p').append('<span lang=EN-US> <img src=""> </span>');
     }
-    count=1;
+    $listImg=$listImgP('p');
     let allFileArray = getAllHtm(dir);
     let tmp = readFiles(allFileArray);
     writeToFile(tmp);
