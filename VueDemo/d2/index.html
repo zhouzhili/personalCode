@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>d2</title>
+    <style rel="stylesheet">
+      #app{
+        display: flex;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="left">
+        <ul>
+          <m-tree :data="treeData"></m-tree>
+        </ul>
+      </div>
+      <div class="right">
+        <m-table :items="tableData" @test="tableEvent"></m-table>
+      </div>
+    </div>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
