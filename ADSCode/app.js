@@ -9,9 +9,9 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 //计数编号
-let count=888;
+let count = 1;
 //设置一个链接是一个图片还是两个图片
-let links=1;
+let links = 1;
 
 //编号模板
 let listNum = `<p class=MsoListParagraph style='margin-left:18.0pt;text-indent:-18.0pt'>
@@ -29,19 +29,21 @@ let listImg = `<p class=MsoNormal>
     </p><br/>`;
 
 let $listNum = cheerio.load(listNum)('p');
-let $listImg ;
+let $listImg;
 
 //文件处理函数
 function init(dir) {
     // 获取链接数是1个图片还是2个图片
-    let args=process.argv.splice(2);
-    let $listImgP= cheerio.load(listImg);
+    let args = process.argv.splice(2);
+    let $listImgP = cheerio.load(listImg);
     //如果参数是2的话
-    if(args&&args.length>0){
-         links=parseInt(args[0]);
-         $listImgP('p').append('<span lang=EN-US> <img src=""> </span>');
+    if (args && args.length > 1) {
+        links = parseInt(args[1]);
+        $listImgP('p').append('<span lang=EN-US> <img src=""> </span>');
     }
-    $listImg=$listImgP('p');
+    count = parseInt(args[0]);
+    
+    $listImg = $listImgP('p');
     let allFileArray = getAllHtm(dir);
     let tmp = readFiles(allFileArray);
     writeToFile(tmp);
@@ -55,7 +57,7 @@ function getAllHtm(dir) {
         let absolutePath = dir + '/' + item;
         let sta = fs.statSync(absolutePath);
         let items = item.split('.');
-        let extension=items[items.length-1];
+        let extension = items[items.length - 1];
         if (!sta.isDirectory() && extension === 'htm') {
             htmArray.push(absolutePath);
         }
@@ -74,43 +76,43 @@ function readFiles(fileNamesArray) {
             let src = cheerio(this).attr('src');
             if (src) {
                 imgArray.push({
-                    src:'../dou/'+src,
-                    width:cheerio(this).attr('width'),
-                    height:cheerio(this).attr('height')
+                    src: '../dou/' + src,
+                    width: cheerio(this).attr('width'),
+                    height: cheerio(this).attr('height')
                 });
             }
         });
-
+        
         $tFs('a').each(function (i, ele) {
             let href = cheerio(this).attr('href');
             if (href) {
                 hrefArray.push(href);
             }
         });
-
-        if (imgArray.length === hrefArray.length*links) {
+        
+        if (imgArray.length === hrefArray.length * links) {
             let len = hrefArray.length;
-            console.log(item+':'+len);
+            console.log(item + ':' + len);
             for (let i = 0; i < len; i++) {
-                tmp += joinDoc(imgArray, hrefArray[i],i);
+                tmp += joinDoc(imgArray, hrefArray[i], i);
             }
         } else {
-            console.log(item + ' 链接和图片数量不一致:链接数：'+hrefArray.length+' ;图片数:'+imgArray.length);
+            console.log(item + ' 链接和图片数量不一致:链接数：' + hrefArray.length + ' ;图片数:' + imgArray.length);
         }
-
+        
     });
     return tmp;
 }
 
 //将图片链接和网址拼接
-function joinDoc(imgObj, href,index) {
+function joinDoc(imgObj, href, index) {
     $listNum.find('span').eq(0).text(count);
     $listNum.find('a').attr('href', href).text(href);
-    $listImg.find('img').eq(0).attr(imgObj[index*links]);
-    if(links!==1){
-        $listImg.find('img').eq(1).attr(imgObj[index*links+1]);
+    $listImg.find('img').eq(0).attr(imgObj[index * links]);
+    if (links !== 1) {
+        $listImg.find('img').eq(1).attr(imgObj[index * links + 1]);
     }
-    count+=links;
+    count += links;
     return cheerio.html($listNum) + cheerio.html($listImg);
 }
 
@@ -124,7 +126,7 @@ function writeToFile(data) {
         if (error) {
             console.log('write error')
         } else {
-            console.log('success,filePath: ./result/result.htm,count:'+count);
+            console.log('success,filePath: ./result/result.htm,count:' + count);
         }
     })
 }
