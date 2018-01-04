@@ -1,0 +1,40 @@
+/**index.wxss**/
+.cellContainer{
+    align-items: flex-start;
+}
+.wecell{
+    border-top: 1rpx solid #ddd;
+    border-bottom: 1rpx solid #ddd;
+    padding:3px 0 ;
+    margin-bottom: 20rpx;
+}
+.cityWrap{
+    padding:15rpx 10rpx;
+}
+.cityWrap>text:first-child{
+    margin-right: 15rpx;
+}
+.cityCurrent{
+    border-bottom: 1rpx solid #ddd;
+}
+.cityInputWrap{
+    display: flex;
+}
+.cityInput{
+    flex:1;
+}
+.container>button{
+    width: 98%;
+}
+.author{
+    justify-content:flex-end;
+    margin:10px auto;
+    font-size:14px;
+    color:#ddd;
+}
+.author>text{
+    margin-right: 10px;
+}
+.author>text:last-child{
+    border-bottom: 1px solid;
+}

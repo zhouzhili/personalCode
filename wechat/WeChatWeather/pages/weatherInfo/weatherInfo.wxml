@@ -1,0 +1,41 @@
+<view >
+    <view wx:if="{{tag}}" class="container weatherCon">
+        <view>
+            <icon type="success" size="90"></icon>
+        </view>
+        <view class="infoContainer">
+            <view>
+                <text class="title">查询城市：</text><text>{{weatherInfo.city}}</text>
+            </view>
+            <view>
+                <text class="title">日期：</text><text>{{weatherInfo.forecast[0].date}}</text>
+            </view>
+            <view>
+                <text class="title">天气情况：</text><text>{{weatherInfo.forecast[0].type}}</text>
+            </view>
+            <view>
+                <text class="title">气温：</text>
+                <text>{{weatherInfo.forecast[0].low}} --- {{weatherInfo.forecast[0].high}}</text>
+            </view>
+            <view>
+                <text class="title">空气指数：</text><text>{{weatherInfo.aqi}}</text>
+            </view>
+            <view>
+                <text class="title">提示：</text><text>{{weatherInfo.ganmao}}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{!tag}}" class="container weatherCon">
+        <view>
+            <icon type="warn" size="90"></icon>
+        </view>
+        <view class="infoContainer errorInfo">
+            <view>
+                <text>查询城市：</text><text>{{cityName}}</text>
+            </view>
+            <view>
+                <text>未能查到当前城市的信息</text>
+            </view>
+        </view>
+    </view>
+</view>

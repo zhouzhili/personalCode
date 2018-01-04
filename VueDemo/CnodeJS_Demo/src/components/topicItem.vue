@@ -5,9 +5,9 @@
     </div>
     <div class="titleWrap">
       <div class="title">
-        <a @click="openDetail(listItem.id)">
+        <router-link :to="{name:'articleRoute',params:{id:listItem.id}}">
           {{listItem.title}}
-        </a>
+        </router-link>
       </div>
       <div class="tips">
         <div>
@@ -25,13 +25,8 @@
 
 <script>
   export default {
-    name:'content-list',
-    props:['listItem'],
-    methods:{
-      openDetail(id){
-        console.log(id)
-      }
-    }
+    name:'topic-item',
+    props:['listItem']
   }
 </script>
 
@@ -64,6 +59,11 @@
   }
   .title>a{
     cursor: pointer;
+    text-decoration: none;
+    color: #1d1a87
+  }
+  .title>a:hover{
+    text-decoration: underline;
   }
   .tips{
     display: flex;

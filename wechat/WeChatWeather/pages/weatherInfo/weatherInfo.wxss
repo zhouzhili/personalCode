@@ -1,0 +1,20 @@
+.weatherCon{
+    padding: 100rpx 0;
+}
+.infoContainer{
+    margin-top: 40rpx;
+    display:flex;
+    flex-direction:column;
+    padding-left:140rpx;
+    font-size: 16px;
+}
+.infoContainer>view{
+    padding: 15rpx;
+}
+
+.title{
+    font-size: 18px;
+}
+.errorInfo{
+    align-items: center;
+}

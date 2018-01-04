@@ -1,26 +1,19 @@
 <template>
   <div id="app">
     <c_head></c_head>
-    <c_main_container v-show="!flag"></c_main_container>
-
+    <router-view name="main"></router-view>
   </div>
 </template>
 
 <script>
 
-import c_main_container from './components/mainContainer.vue'
 import c_head from './components/head.vue'
+import './assets/markdown.css'
 
 export default {
   name:'app',
-  data(){
-    return{
-      flag:true
-    }
-  },
   components:{
-    c_head,
-    c_main_container
+    c_head
   }
 }
 </script>
@@ -29,6 +22,7 @@ export default {
   html,body{
     margin: 0;
     padding: 0;
+    background-color: #e1e1e1;
   }
   #app{
     display: flex;

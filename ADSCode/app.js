@@ -32,6 +32,10 @@ let $listNum = cheerio.load(listNum)('p');
 let $listImg;
 
 //文件处理函数
+/**
+ *一个链接对应一个图片的情况下，输入node app count,1为count值
+ *否则，一个链接对应多个值的情况下，输入 node app count links
+**/
 function init(dir) {
     // 获取链接数是1个图片还是2个图片
     let args = process.argv.splice(2);

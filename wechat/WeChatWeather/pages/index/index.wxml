@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container cellContainer">
+    <view class="wecell">
+        <view class="cityWrap cityCurrent">
+            <text>当前所在城市:</text>
+            <text>{{city}}</text>
+        </view>
+        <view class="cityWrap cityInputWrap">
+            <text>自定义查询:</text>
+            <input type='text' bindinput="cityInput" class="cityInput" placeholder="请输入城市名称"/>
+        </view>
+    </view>
+    <button type='primary' bindtap="search">查询天气</button>
+    <view class="author">
+        <text>© zhili</text>
+        <text bindtap="about">关于</text>
+    </view>
+</view>
