@@ -14,6 +14,15 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const formatUrl=(url,params)=>{
+    let newUrl=url+'?';
+    for(let key in params){
+        newUrl+=`${key}=${params[key]}&`
+    }
+    return newUrl.slice(0,newUrl.length-1);
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+    formatUrl:formatUrl,
 }

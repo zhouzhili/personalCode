@@ -5,7 +5,7 @@
     margin-top: 40rpx;
     display:flex;
     flex-direction:column;
-    padding-left:140rpx;
+    padding-left:100rpx;
     font-size: 16px;
 }
 .infoContainer>view{
@@ -17,4 +17,5 @@
 }
 .errorInfo{
     align-items: center;
+    padding-left: 0;
 }

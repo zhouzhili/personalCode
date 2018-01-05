@@ -1,0 +1,5 @@
+<view class="about">
+    <text>天气查询小程序，使用sojson天气API</text>
+    <text>作者：zzl</text>
+    <text>联系方式：zhouzhili124@gmail.com</text>
+</view>

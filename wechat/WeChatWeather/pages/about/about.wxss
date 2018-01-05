@@ -1,0 +1,9 @@
+/* pages/about/about.wxss */
+.about{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30rpx;
+    margin-top: 30px;
+    font-size: 28rpx;
+    height: 100%;
+}

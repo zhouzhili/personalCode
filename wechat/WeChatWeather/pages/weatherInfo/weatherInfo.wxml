@@ -5,23 +5,23 @@
         </view>
         <view class="infoContainer">
             <view>
-                <text class="title">查询城市：</text><text>{{weatherInfo.city}}</text>
+                <text class="title">查询城市：</text><text>{{cityName}}</text>
             </view>
             <view>
-                <text class="title">日期：</text><text>{{weatherInfo.forecast[0].date}}</text>
+                <text class="title">日期：</text><text>{{info.date}}</text>
             </view>
             <view>
-                <text class="title">天气情况：</text><text>{{weatherInfo.forecast[0].type}}</text>
+                <text class="title">天气情况：</text><text>{{info.data.forecast[0].type}}</text>
             </view>
             <view>
                 <text class="title">气温：</text>
-                <text>{{weatherInfo.forecast[0].low}} --- {{weatherInfo.forecast[0].high}}</text>
+                <text>{{info.data.forecast[0].low}} --- {{info.data.forecast[0].high}}</text>
             </view>
             <view>
-                <text class="title">空气指数：</text><text>{{weatherInfo.aqi}}</text>
+                <text class="title">空气指数：</text><text>{{info.data.quality}}</text>
             </view>
             <view>
-                <text class="title">提示：</text><text>{{weatherInfo.ganmao}}</text>
+                <text class="title">提示：</text><text>{{info.data.ganmao}}</text>
             </view>
         </view>
     </view>

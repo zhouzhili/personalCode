@@ -2,14 +2,32 @@
 .cellContainer{
     align-items: flex-start;
 }
+.cellContainer>view{
+    width: 100%;
+}
 .wecell{
     border-top: 1rpx solid #ddd;
     border-bottom: 1rpx solid #ddd;
     padding:3px 0 ;
     margin-bottom: 20rpx;
+    width:100%;
 }
 .cityWrap{
     padding:15rpx 10rpx;
+    display:flex;
+    align-items:center;
+    color: #545454;
+}
+.cityWrap image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5rpx;
+}
+.locationInfo{
+    display:flex;
+    align-items:center;
+    color: #ddd;
+    margin-left: 15rpx;
 }
 .cityWrap>text:first-child{
     margin-right: 15rpx;
@@ -22,12 +40,14 @@
 }
 .cityInput{
     flex:1;
+    margin-left:10rpx;
 }
 .container>button{
     width: 98%;
 }
 .author{
-    justify-content:flex-end;
+    display: flex;
+    justify-content:center;
     margin:10px auto;
     font-size:14px;
     color:#ddd;
