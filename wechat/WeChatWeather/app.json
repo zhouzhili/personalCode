@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
+    "pages/test/test",
     "pages/index/index",
     "pages/weatherInfo/weatherInfo",
     "pages/about/about",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "查询天气",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

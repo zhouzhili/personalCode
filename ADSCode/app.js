@@ -139,3 +139,4 @@ function writeToFile(data) {
 init('./dou');
 
 
+
