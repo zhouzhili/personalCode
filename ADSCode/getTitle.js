@@ -23,6 +23,7 @@ function getPageInfo(href,tag,callback) {
                 authi=$html('.authi').find('em>a').text();
             }else if(tag==='sina'){
                 title=$html('.titName').text();
+                authi=$html('.SG_revert_Tit').text();
             }
             //已键值对的方式存入链接以及其对应的标题
             if(titleObj.hasOwnProperty(href)){
@@ -38,11 +39,7 @@ function getPageInfo(href,tag,callback) {
             }
             callback(titleObj[href]);
         }
-}).catch((error)=>{
-        console.log('error: ',href,error);
-		sameLink.push(href+'  获取失败');
-		callback();
-});
+    });
 }
 
 function readFile(fileName) {
@@ -64,7 +61,7 @@ function readFile(fileName) {
                 authi:''
             });
         }
-    },3);
+    },5);
     
     //队列所有完成后执行方法，将标题添加到链接后面
     q.drain=function () {
@@ -109,11 +106,11 @@ function readFile(fileName) {
         }
     });
 }
-readFile('./dou/1000pian.htm');
-readFile('./dou/1000pian-2.htm');
-readFile('./dou/fatie1000.htm');
-readFile('./dou/fatie1000-2.htm');
-readFile('./dou/fatie1000-3.htm');
+
+
+
+
+readFile('./dou/300.htm');
 
 
 
